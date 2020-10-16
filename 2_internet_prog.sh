@@ -12,12 +12,6 @@
 #sudo add-apt-repository -y ppa:deluge-team/ppa-
 
 echo '============================================================================='
-echo '================   Добавление репозитория и ключа enpass   =================='
-echo '============================================================================='
-echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list
-wget -O - https://apt.enpass.io/keys/enpass-linux.key | apt-key add -
-
-echo '============================================================================='
 echo '========================   Обновление репозиториев   ========================'
 echo '============================================================================='
 sudo apt-get update
@@ -25,17 +19,23 @@ sudo apt-get update
 # установка программ
 
 echo '============================================================================='
-echo '============   Установка Chromium Browser - интернет-браузер  ==============='
+echo '============      Установка Chromium - интернет-браузер       ==============='
 echo '============================================================================='
-sudo apt-get install -y chromium-browser
-cp /usr/share/applications/chromium-browser.desktop "/home/dima/Рабочий стол"
-chown dima:sudo "/home/dima/Рабочий стол/chromium-browser.desktop"
-chmod +x "/home/dima/Рабочий стол/chromium-browser.desktop"
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo apt install -y ./google-chrome-stable_current_amd64.deb
+rm -f ./google-chrome-stable_current_amd64.deb
+
+cp /usr/share/applications/google-chrome.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/google-chrome.desktop"
+chmod +x "/home/dima/Рабочий стол/google-chrome.desktop"
 
 echo '============================================================================='
 echo '===================   Установка Enpass - менеджер паролей ==================='
 echo '============================================================================='
-sudo apt-get install -y enpass
+echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list
+wget -O - https://apt.enpass.io/keys/enpass-linux.key | apt-key add -
+sudo apt-get update && sudo apt-get install -y enpass
+
 cp /usr/share/applications/enpass.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/enpass.desktop"
 chmod +x "/home/dima/Рабочий стол/enpass.desktop"

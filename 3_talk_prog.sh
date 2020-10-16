@@ -18,6 +18,24 @@ sudo apt-get update
 # установка программ
 
 echo '============================================================================='
+echo '==========================   Установка Whatsapp   ==========================='
+echo '============================================================================='
+sudo apt-get install -y whatsapp-desktop
+cp /usr/share/applications/whatsappdesktop.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/whatsappdesktop.desktop"
+chmod +x "/home/dima/Рабочий стол/whatsappdesktop.desktop"
+
+echo '============================================================================='
+echo '============================       Discord      ============================'
+echo '============================================================================'
+wget -O ./discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+sudo apt install -y ./discord.deb
+rm -f ./discord.deb
+cp /usr/share/applications/discord.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/discord.desktop"
+chmod +x "/home/dima/Рабочий стол/discord.desktop"
+
+echo '============================================================================='
 echo '============================   Установка Skype   ============================'
 echo '============================================================================='
 sudo apt-get install -y skypeforlinux
@@ -37,7 +55,7 @@ echo '==========================================================================
 echo '============================   Установка Viber   ============================'
 echo '============================================================================='
 wget -nc --tries=5 https://download.cdn.viber.com/cdn/desktop/Linux/viber.deb
-sudo gdebi viber.deb
+sudo apt install -y ./viber.deb
 rm -f ./viber.deb
 cp /usr/share/applications/viber.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/viber.desktop"

@@ -30,6 +30,27 @@ chown dima:sudo "/home/dima/Рабочий стол/google-chrome.desktop"
 chmod +x "/home/dima/Рабочий стол/google-chrome.desktop"
 
 echo '============================================================================='
+echo '============                 Установка Opera                  ==============='
+echo '============================================================================='
+wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -
+sudo add-apt-repository "deb [arch=i386,amd64] https://deb.opera.com/opera-stable/ stable non-free"
+sudo apt-get update
+sudo apt-get install opera-stable -y
+
+cp /usr/share/applications/opera.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/opera.desktop"
+chmod +x "/home/dima/Рабочий стол/opera.desktop"
+
+echo '============================================================================='
+echo '============               Установка Tor Browser              ==============='
+echo '============================================================================='
+sudo apt install torbrowser-launcher -y
+
+cp /usr/share/applications/torbrowser.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/torbrowser.desktop"
+chmod +x "/home/dima/Рабочий стол/torbrowser.desktop"
+
+echo '============================================================================='
 echo '===================   Установка Enpass - менеджер паролей ==================='
 echo '============================================================================='
 echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list

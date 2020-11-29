@@ -11,6 +11,9 @@
 # deluge
 #sudo add-apt-repository -y ppa:deluge-team/ppa
 
+# todo: for ntfs see /etc/fstab
+# sudo ntfsfix /dev/disk/....
+
 # обновление репозиториев
 echo '============================================================================='
 echo '========================   Обновление репозиториев   ========================'
@@ -48,6 +51,19 @@ echo '==========================================================================
 echo '===========================   Установка dos2unix   =========================='
 echo '============================================================================='
 sudo apt-get install -y dos2unix
+
+echo '============================================================================='
+echo '======================   Установка антивируса clamav   ======================'
+echo '============================================================================='
+sudo apt-get install -y clamav
+sudo apt-get install -y clamav-base
+sudo apt-get install -y clamav-freshclam
+sudo apt-get install -y clamav-daemon
+sudo apt-get install -y clamtk
+
+cp /usr/share/applications/clamtk.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/clamtk.desktop"
+chmod +x "/home/dima/Рабочий стол/clamtk.desktop"
 
 echo '============================================================================='
 echo '============================   Установка ярлыков   =========================='

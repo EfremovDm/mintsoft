@@ -16,6 +16,7 @@ sudo apt-get update
 # ------------------------------------------------------------------------------------------------------------
 # установка программ
 
+I=`dpkg -s sublime-text | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '================   Установка Sublime - редактор текстов   ==================='
 echo '============================================================================='
@@ -24,7 +25,21 @@ sudo apt-get install -y sublime-text
 cp /usr/share/applications/sublime_text.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/sublime_text.desktop"
 chmod +x "/home/dima/Рабочий стол/sublime_text.desktop"
+fi
 
+I=`dpkg -s putty | grep "Status"`; if [ ! -n "$I" ]; then
+echo '============================================================================='
+echo '================       Установка putty - ssh-клиент       ==================='
+echo '============================================================================='
+sudo apt-get install -y putty
+sudo apt-get install -y putty-tools
+
+cp /usr/share/applications/putty.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/putty.desktop"
+chmod +x "/home/dima/Рабочий стол/putty.desktop"
+fi
+
+I=`dpkg -s filezilla | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '==================   Установка FileZilla - FTP-клиент   ====================='
 echo '============================================================================='
@@ -33,12 +48,63 @@ sudo apt-get install -y filezilla
 cp /usr/share/applications/filezilla.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/filezilla.desktop"
 chmod +x "/home/dima/Рабочий стол/filezilla.desktop"
+fi
 
+I=`dpkg -s git | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '================   Установка git - система контроля версий   ================'
 echo '============================================================================='
 sudo apt-get install -y git
+fi
 
+I=`dpkg -s dbeaver-ce | grep "Status"`; if [ ! -n "$I" ]; then
+echo '============================================================================='
+echo '================   Установка DBeaver - db managment studio   ================'
+echo '============================================================================='
+# Ubuntu PPA: https://dbeaver.io/download/
+sudo add-apt-repository ppa:serge-rider/dbeaver-ce -y
+sudo apt-get update
+sudo apt-get install dbeaver-ce
+
+cp /usr/share/applications/dbeaver.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/dbeaver.desktop"
+chmod +x "/home/dima/Рабочий стол/dbeaver.desktop"
+fi
+
+I=`dpkg -s vstudio | grep "Status"`; if [ ! -n "$I" ]; then
+echo '============================================================================='
+echo '=============   Установка Valentina DB - db managment studio   =============='
+echo '============================================================================='
+# DEB: https://www.valentina-db.com/en/all-downloads/vstudio/current
+
+wget -O vstudio_x64_10_lin.deb https://www.valentina-db.com/en/all-downloads/vstudio/current/vstudio_x64_lin-deb?format=raw
+sudo apt-get install -y ./vstudio_x64_10_lin.deb
+rm -f ./vstudio_x64_10_lin.deb
+
+cp /usr/share/applications/vstudio.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/vstudio.desktop"
+chmod +x "/home/dima/Рабочий стол/vstudio.desktop"
+fi
+
+I=`dpkg -s wine | grep "Status"`; if [ ! -n "$I" ]; then
+echo '============================================================================='
+echo '=============   Установка Wine - поддержка программ windows   ==============='
+echo '============================================================================='
+sudo apt-get install -y wine
+fi
+
+I=`dpkg -s playonlinux | grep "Status"`; if [ ! -n "$I" ]; then
+echo '============================================================================='
+echo '=============    Установка PlayOnLinux - front-end for wine   ==============='
+echo '============================================================================='
+sudo apt-get install -y playonlinux
+
+cp /usr/share/applications/PlayOnLinux.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/PlayOnLinux.desktop"
+chmod +x "/home/dima/Рабочий стол/PlayOnLinux.desktop"
+fi
+
+I=`dpkg -s remmina | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '====================   Установка Remmina - RDP-клиент   ====================='
 echo '============================================================================='
@@ -47,7 +113,9 @@ sudo apt-get install -y remmina
 cp /usr/share/applications/org.remmina.Remmina.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/org.remmina.Remmina.desktop"
 chmod +x "/home/dima/Рабочий стол/org.remmina.Remmina.desktop"
+fi
 
+I=`dpkg -s teamviewer | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '=============   Установка TeamViewer - удаленное управление   ==============='
 echo '============================================================================='
@@ -58,7 +126,9 @@ rm -f ./teamviewer_amd64.deb
 cp /usr/share/applications/com.teamviewer.TeamViewer.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/com.teamviewer.TeamViewer.desktop"
 chmod +x "/home/dima/Рабочий стол/com.teamviewer.TeamViewer.desktop"
+fi
 
+I=`dpkg -s anydesk | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '=============     Установка AnyDesk - удаленное управление    ==============='
 echo '============================================================================='
@@ -71,12 +141,16 @@ sudo apt-get install -y anydesk
 cp /usr/share/applications/anydesk.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/anydesk.desktop"
 chmod +x "/home/dima/Рабочий стол/anydesk.desktop"
+fi
 
+I=`dpkg -s mysql-client | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '======================   Установка Mysql Client   ==========================='
 echo '============================================================================='
 sudo apt-get install -y mysql-client
+fi
 
+I=`dpkg -s nodejs | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '======================   Установка Node.JS 15.x   ==========================='
 echo '============================================================================='
@@ -89,7 +163,9 @@ sudo apt-get install -y nodejs
 #development tools to build native addons
 sudo apt-get install gcc g++ make
 node -v
+fi
 
+I=`dpkg -s yarn | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '===================   Установка Yarn Package Manager  ======================='
 echo '============================================================================='
@@ -97,7 +173,9 @@ curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update && sudo apt-get install -y yarn
 yarn -v
+fi
 
+if [ ! -e /opt/lampp/manager-linux-x64.run ]; then
 echo '============================================================================='
 echo '=============   Установка XAMPP - сервер разработки PHP   ==================='
 echo '============================================================================='
@@ -114,14 +192,18 @@ echo -e "#!/usr/bin/env xdg-open\n[Desktop Entry]\nComment=Start or Stop XAMPP\n
 echo -e "#!/usr/bin/env xdg-open\n[Desktop Entry]\nComment=Start or Stop XAMPP\nName=XAMPP Control Panel\nExec=sh -c \"pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY sudo /opt/lampp/manager-linux-x64.run\"\nIcon[en_US]=/usr/share/icons/Humanity/devices/24/network-wired.svg\nEncoding=UTF-8\nTerminal=false\nName[en_US]=XAMPP Control Panel\nComment[en_US]=Start or Stop XAMPP\nType=Application\nIcon=/opt/lampp/htdocs/favicon.ico" > "/home/dima/Рабочий стол/xampp.desktop"
 chown dima:sudo "/home/dima/Рабочий стол/xampp.desktop"
 chmod +x "/home/dima/Рабочий стол/xampp.desktop"
+fi
 
+I=`dpkg -s phpstorm | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '===        Установка https://github.com/JonasGroeger/jetbrains-ppa        ==='
 echo '============================================================================='
 curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
 echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
 sudo apt-get update
+fi
 
+I=`dpkg -s phpstorm | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '=============       Установка JetBrains PhpStorm IDE      ==================='
 echo '============================================================================='
@@ -130,7 +212,9 @@ sudo apt-get install -y phpstorm
 cp /usr/share/applications/phpstorm.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/phpstorm.desktop"
 chmod +x "/home/dima/Рабочий стол/phpstorm.desktop"
+fi
 
+I=`dpkg -s webstorm | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '=============       Установка JetBrains WebStrom IDE      ==================='
 echo '============================================================================='
@@ -139,7 +223,9 @@ sudo apt-get install -y webstorm
 cp /usr/share/applications/webstorm.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/webstorm.desktop"
 chmod +x "/home/dima/Рабочий стол/webstorm.desktop"
+fi
 
+I=`dpkg -s intellij-idea-ultimate | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '=============       Установка JetBrains Intellij IDE      ==================='
 echo '============================================================================='
@@ -148,7 +234,9 @@ sudo apt-get install -y intellij-idea-ultimate
 cp /usr/share/applications/intellij-idea-ultimate.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/intellij-idea-ultimate.desktop"
 chmod +x "/home/dima/Рабочий стол/intellij-idea-ultimate.desktop"
+fi
 
+I=`dpkg -s android-studio | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '=============         Установка Android Studio IDE        ==================='
 echo '============================================================================='
@@ -161,7 +249,9 @@ sudo apt-get install -y android-studio
 cp /usr/share/applications/android-studio.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/android-studio.desktop"
 chmod +x "/home/dima/Рабочий стол/android-studio.desktop"
+fi
 
+I=`dpkg -s code | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '=============              Установка VsCode               ==================='
 echo '============================================================================='
@@ -180,7 +270,7 @@ sudo apt-get install -y code
 cp /usr/share/applications/code.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/code.desktop"
 chmod +x "/home/dima/Рабочий стол/code.desktop"
-
+fi
 
 
 # ubuntu make - программа установки инструментов разработчиков, нужна для установки PyCharm и прочих

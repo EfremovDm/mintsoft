@@ -18,6 +18,7 @@ sudo apt-get update
 # ------------------------------------------------------------------------------------------------------------
 # установка программ
 
+I=`dpkg -s google-chrome-stable | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '============      Установка Chromium - интернет-браузер       ==============='
 echo '============================================================================='
@@ -28,7 +29,9 @@ rm -f ./google-chrome-stable_current_amd64.deb
 cp /usr/share/applications/google-chrome.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/google-chrome.desktop"
 chmod +x "/home/dima/Рабочий стол/google-chrome.desktop"
+fi
 
+I=`dpkg -s opera-stable | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '============                 Установка Opera                  ==============='
 echo '============================================================================='
@@ -40,7 +43,9 @@ sudo apt-get install opera-stable -y
 cp /usr/share/applications/opera.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/opera.desktop"
 chmod +x "/home/dima/Рабочий стол/opera.desktop"
+fi
 
+I=`dpkg -s torbrowser-launcher | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '============               Установка Tor Browser              ==============='
 echo '============================================================================='
@@ -49,7 +54,9 @@ sudo apt install torbrowser-launcher -y
 cp /usr/share/applications/torbrowser.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/torbrowser.desktop"
 chmod +x "/home/dima/Рабочий стол/torbrowser.desktop"
+fi
 
+I=`dpkg -s enpass | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '===================   Установка Enpass - менеджер паролей ==================='
 echo '============================================================================='
@@ -60,7 +67,9 @@ sudo apt-get update && sudo apt-get install -y enpass
 cp /usr/share/applications/enpass.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/enpass.desktop"
 chmod +x "/home/dima/Рабочий стол/enpass.desktop"
+fi
 
+I=`dpkg -s evolution | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '============   Установка Evolution - почтовый exchange-клиент  =============='
 echo '============================================================================='
@@ -70,3 +79,4 @@ sudo apt-get install -y evolution-ews
 cp /usr/share/applications/org.gnome.Evolution.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/org.gnome.Evolution.desktop"
 chmod +x "/home/dima/Рабочий стол/org.gnome.Evolution.desktop"
+fi

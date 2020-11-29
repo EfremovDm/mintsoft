@@ -17,6 +17,7 @@ sudo apt-get update
 # ------------------------------------------------------------------------------------------------------------
 # установка программ
 
+I=`dpkg -s whatsapp-desktop | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '==========================   Установка Whatsapp   ==========================='
 echo '============================================================================='
@@ -25,7 +26,9 @@ sudo apt-get install -y whatsapp-desktop
 cp /usr/share/applications/whatsappdesktop.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/whatsappdesktop.desktop"
 chmod +x "/home/dima/Рабочий стол/whatsappdesktop.desktop"
+fi
 
+I=`dpkg -s discord | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '============================       Discord      ============================'
 echo '============================================================================'
@@ -36,7 +39,9 @@ rm -f ./discord.deb
 cp /usr/share/applications/discord.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/discord.desktop"
 chmod +x "/home/dima/Рабочий стол/discord.desktop"
+fi
 
+I=`dpkg -s skypeforlinux | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '============================   Установка Skype   ============================'
 echo '============================================================================='
@@ -45,7 +50,9 @@ sudo apt-get install -y skypeforlinux
 cp /usr/share/applications/skypeforlinux.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/skypeforlinux.desktop"
 chmod +x "/home/dima/Рабочий стол/skypeforlinux.desktop"
+fi
 
+I=`dpkg -s telegram-desktop | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '==========================   Установка Telegram   ==========================='
 echo '============================================================================='
@@ -54,7 +61,9 @@ sudo apt-get install -y telegram-desktop
 cp /usr/share/applications/telegramdesktop.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/telegramdesktop.desktop"
 chmod +x "/home/dima/Рабочий стол/telegramdesktop.desktop"
+fi
 
+I=`dpkg -s viber | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '============================   Установка Viber   ============================'
 echo '============================================================================='
@@ -65,7 +74,9 @@ rm -f ./viber.deb
 cp /usr/share/applications/viber.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/viber.desktop"
 chmod +x "/home/dima/Рабочий стол/viber.desktop"
+fi
 
+I=`dpkg -s zoom | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '============================   Установка Zoom    ============================'
 echo '============================================================================='
@@ -77,6 +88,7 @@ rm -f ./zoom_amd64.deb
 cp /usr/share/applications/Zoom.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/Zoom.desktop"
 chmod +x "/home/dima/Рабочий стол/Zoom.desktop"
+fi
 
 # Choqok - twitter-клиент с широким функционалом
 #sudo apt-get install -y choqok

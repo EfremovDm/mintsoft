@@ -57,6 +57,19 @@ echo '==========================================================================
 sudo apt-get install -y git
 fi
 
+
+I=`dpkg -s kruler | grep "Status"`; if [ ! -n "$I" ]; then
+echo '============================================================================='
+echo '===============      Установка kruler - экранная линейка     ================'
+echo '============================================================================='
+sudo apt-get install -y kruler
+
+cp /usr/share/applications/org.kde.kruler.desktop "/home/dima/Рабочий стол"
+chown dima:sudo "/home/dima/Рабочий стол/org.kde.kruler.desktop"
+chmod +x "/home/dima/Рабочий стол/org.kde.kruler.desktop"
+fi
+
+
 I=`dpkg -s dbeaver-ce | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '================   Установка DBeaver - db managment studio   ================'

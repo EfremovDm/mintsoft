@@ -197,15 +197,16 @@ fi
 
 if [ ! -e /opt/lampp/manager-linux-x64.run ]; then
 echo '============================================================================='
-echo '=============   Установка XAMPP - сервер разработки PHP   ==================='
+echo '===========   Установка XAMPP 7.4 - сервер разработки PHP   ================='
 echo '============================================================================='
-wget -nc --tries=5 https://www.apachefriends.org/xampp-files/7.2.16/xampp-linux-x64-7.2.16-1-installer.run
-sudo chmod 755 ./xampp-linux-x64-7.2.16-1-installer.run
-chmod +x ./xampp-linux-x64-7.2.16-1-installer.run
-sudo ./xampp-linux-x64-7.2.16-1-installer.run
+#https://www.apachefriends.org/download.html
+#sudo /opt/lampp/uninstall
+wget -nc --tries=5 https://www.apachefriends.org/xampp-files/7.4.14/xampp-linux-x64-7.4.14-1-installer.run
+sudo chmod 755 ./xampp-linux-x64-7.4.14-1-installer.run
+chmod +x ./xampp-linux-x64-7.4.14-1-installer.run
+sudo ./xampp-linux-x64-7.4.14-1-installer.run
 sudo chmod 777 /opt/lampp/manager-linux-x64.run
-sudo /opt/lampp/manager-linux-x64.run
-rm -f ./xampp-linux-x64-7.2.16-1-installer.run
+rm -f ./xampp-linux-x64-7.4.14-1-installer.run
 
 #https://imacros.ru/raznoe/linux-xampp-ustanovka.html
 echo -e "#!/usr/bin/env xdg-open\n[Desktop Entry]\nComment=Start or Stop XAMPP\nName=XAMPP Control Panel\nExec=sh -c \"pkexec env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY sudo /opt/lampp/manager-linux-x64.run\"\nIcon[en_US]=/usr/share/icons/Humanity/devices/24/network-wired.svg\nEncoding=UTF-8\nTerminal=false\nName[en_US]=XAMPP Control Panel\nComment[en_US]=Start or Stop XAMPP\nType=Application\nIcon=/opt/lampp/htdocs/favicon.ico" > "/usr/share/applications/xampp.desktop"

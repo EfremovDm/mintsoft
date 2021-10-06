@@ -62,7 +62,8 @@ echo '===================   Установка Enpass - менеджер пар�
 echo '============================================================================='
 echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list
 wget -O - https://apt.enpass.io/keys/enpass-linux.key | apt-key add -
-sudo apt-get update && sudo apt-get install -y enpass
+sudo apt-get update -y
+sudo apt-get install -y enpass
 
 cp /usr/share/applications/enpass.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/enpass.desktop"

@@ -172,12 +172,12 @@ fi
 
 I=`dpkg -s nodejs | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
-echo '======================   Установка Node.JS 15.x   ==========================='
+echo '======================   Установка Node.JS 16.x   ==========================='
 echo '============================================================================='
 #https://computingforgeeks.com/install-node-js-14-on-ubuntu-debian-linux-mint/
 
 #installing the required repository
-curl -sL https://deb.nodesource.com/setup_15.x | sudo bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
 #installation
 sudo apt-get install -y nodejs
 #development tools to build native addons

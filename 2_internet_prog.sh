@@ -14,7 +14,7 @@
 echo '============================================================================='
 echo '========================   Обновление репозиториев   ========================'
 echo '============================================================================='
-sudo apt-get update
+sudo apt-get update -y
 # ------------------------------------------------------------------------------------------------------------
 # установка программ
 
@@ -22,9 +22,13 @@ I=`dpkg -s google-chrome-stable | grep "Status"`; if [ ! -n "$I" ]; then
 echo '============================================================================='
 echo '============      Установка Chromium - интернет-браузер       ==============='
 echo '============================================================================='
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install -y ./google-chrome-stable_current_amd64.deb
-rm -f ./google-chrome-stable_current_amd64.deb
+#wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#sudo apt install -y ./google-chrome-stable_current_amd64.deb
+#rm -f ./google-chrome-stable_current_amd64.deb
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+c add-apt-repository "deb http://dl.google.com/linux/chrome/deb/ stable main"
+sudo apt update -y
+sudo apt install google-chrome-stable
 
 cp /usr/share/applications/google-chrome.desktop "/home/dima/Рабочий стол"
 chown dima:sudo "/home/dima/Рабочий стол/google-chrome.desktop"
@@ -48,7 +52,7 @@ echo '==========================================================================
 echo '===================   Установка Enpass - менеджер паролей ==================='
 echo '============================================================================='
 echo "deb https://apt.enpass.io/ stable main" > /etc/apt/sources.list.d/enpass.list
-wget -O - https://apt.enpass.io/keys/enpass-linux.key | apt-key add -
+wget -O - https://apt.enpass.io/keys/enpass-linux.key | sudo apt-key add -
 sudo apt-get update -y
 sudo apt-get install -y enpass
 
